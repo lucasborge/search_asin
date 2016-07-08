@@ -7,6 +7,7 @@ $price = "";
 $open_date = "";
 $qty = "";
 $marketplace = "";
+$str = "";
 if (isset($_GET['asin'])) {
     $asin = $_GET['asin'];
 
@@ -44,7 +45,11 @@ fclose ($ch);
         $asin3 = $order['asin3'];
 
         if ($asin == $asin1 || $asin == $asin2 || $asin == $asin3) {
-            $item_name = $order['item-name'];
+        	foreach ($order as $key => $value) {
+        		$str .= $key . " : " . $value . "<br>";
+        	}
+        	$image_url = $order['image-url'];
+            /*$item_name = $order['item-name'];
             $sku = $order['seller-sku'];
             $desc = $order['item-description'];
             $listing_id = $order['listing-id'];
@@ -54,7 +59,7 @@ fclose ($ch);
             $marketplace = $order['item-is-marketplace'];
             $type = $order['product-id-type'];
             //zshop-shipping-fee,item-note,item-condition,zshop-category1,zshop-browse-path,zshop-storefront-feature,asin1,asin2,asin3,will-ship-internationally,expedited-shipping,zshop-boldface,product-id,bid-for-featured-placement,add-delete,pending-quantity,fulfillment-channel,business-price,"quantity price type","quantity lower bound 1","quantity price 1","quantity lower bound 2","quantity price 2","quantity lower bound 3","quantity price 3","quantity lower bound 4","quantity price 4","quantity lower bound 5","quantity price 5",merchant-shipping-group
-            $price = $order['price'];
+            $price = $order['price'];*/
             break;
         }
     }
@@ -85,13 +90,30 @@ fclose ($ch);
             <input type="button" value="search" onclick="get_asin()">
             <div id="result" style="border:1px solid #ddd;width:500px; height: 400px; overflow: auto;">
                 <?php
-                    echo "SKU : " . $sku . "<br>";
+                    /*echo "SKU : " . $sku . "<br>";
                     echo "PRICE : " . $price . "<br>";
                     echo "QUANTITY : " . $qty . "<br>";
                     echo "Open Date : " . $open_date . "<br>";
                     echo "MarketPlace : " . $marketplace . "<br>";
                     echo "<br>";
                     echo "PRODUCT NAME : " . $item_name;
+                    echo "DESCRIPTION : " . $desc . "<br>";
+                    echo "zshop-shipping-fee : " . $marketplace . "<br>";
+                    echo "item-note : " . $marketplace . "<br>";
+                    echo "item-condition : " . $marketplace . "<br>";
+                    echo "zshop-category1 : " . $marketplace . "<br>";
+                    echo "zshop-browse-path : " . $marketplace . "<br>";
+                    echo "MarketPlace : " . $marketplace . "<br>";
+                    echo "MarketPlace : " . $marketplace . "<br>";
+                    echo "MarketPlace : " . $marketplace . "<br>";
+                    echo "MarketPlace : " . $marketplace . "<br>";
+                    echo "MarketPlace : " . $marketplace . "<br>";
+                    echo "MarketPlace : " . $marketplace . "<br>";
+                    echo "MarketPlace : " . $marketplace . "<br>";
+                    echo "MarketPlace : " . $marketplace . "<br>";
+                    echo "MarketPlace : " . $marketplace . "<br>";
+                    echo "MarketPlace : " . $marketplace . "<br>";*/
+                    echo $str;
                 ?>
             </div>
             <img src="<?php echo $image_url;?>" style="width:200px;">
